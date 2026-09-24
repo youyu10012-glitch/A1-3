@@ -316,3 +316,169 @@ footer {
   .curator-container { grid-template-columns: 1fr; }
   .card-grid { grid-template-columns: 1fr; }
 }
+
+/* AI 추천 결과 카드 프리미엄 스타일 */
+.result-box {
+  margin-top: 2.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem;
+  border: 1px solid #dbe6cb;
+}
+
+.curation-badge {
+  display: inline-block;
+  background: #1e221b;
+  color: #c8e6a0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.curation-destination {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #141c0f;
+  margin-bottom: 0.4rem;
+}
+
+.curation-tagline {
+  font-size: 1.1rem;
+  color: #c8634a;
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid #eef2e6;
+}
+
+.curation-section {
+  margin-bottom: 2rem;
+}
+
+.curation-section h4 {
+  font-size: 1.05rem;
+  color: #1e221b;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.curation-reason {
+  font-size: 0.98rem;
+  color: #4a5d38;
+  line-height: 1.7;
+}
+
+.highlights-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #f9fbf6;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid #e7eee0;
+}
+
+.spot-num {
+  background: #d6e8a9;
+  color: #2b3b19;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.spot-info strong {
+  display: block;
+  font-size: 0.98rem;
+  color: #1b2413;
+  margin-bottom: 0.25rem;
+}
+
+.spot-info p {
+  font-size: 0.88rem;
+  color: #556645;
+  margin: 0;
+}
+
+.itinerary-container {
+  background: #f7f9f4;
+  border-radius: 8px;
+  padding: 1rem 1.4rem;
+}
+
+.itinerary-row {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed #dfe6d5;
+  font-size: 0.92rem;
+}
+
+.itinerary-row:last-child {
+  border-bottom: none;
+}
+
+.itin-time {
+  font-weight: 700;
+  color: #c8634a;
+  min-width: 90px;
+}
+
+.itin-act {
+  color: #2b3323;
+}
+
+.curation-tip-box {
+  background: #eef7de;
+  border-left: 4px solid #798d60;
+  padding: 1.2rem 1.4rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+
+.curation-tip-box strong {
+  display: block;
+  color: #283a17;
+  font-size: 0.92rem;
+  margin-bottom: 0.3rem;
+}
+
+.curation-tip-box p {
+  font-size: 0.9rem;
+  color: #4a5c37;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.card-footer-actions {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.map-link-btn {
+  display: inline-block;
+  background: #fae100;
+  color: #371d1e;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  padding: 0.9rem 1.8rem;
+  border-radius: 6px;
+  transition: opacity 0.2s;
+}
+
+.map-link-btn:hover {
+  opacity: 0.9;
+}

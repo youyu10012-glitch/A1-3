@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnText = document.getElementById("btn-text");
   const statusMsg = document.getElementById("status-message");
   const resultBox = document.getElementById("result-box");
-  const resultText = document.getElementById("result-text");
 
   if (!form) return;
 
@@ -20,37 +19,83 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // 로딩 UI 시작
     submitBtn.disabled = true;
-    btnText.textContent = "AI 여행지 분석 중...";
-    statusMsg.textContent = "취향에 맞는 최적의 여행지를 탐색 중입니다...";
+    btnText.textContent = "✨ 큐레이션 리포트 생성 중...";
+    statusMsg.textContent = "AI가 최적의 스팟과 일정을 선별하고 있습니다...";
     resultBox.style.display = "none";
 
     try {
       const response = await fetch("/api/recommend", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ style, schedule, companion })
       });
 
-      if (!response.ok) {
-        throw new Error(`서버 응답 오류 (상태 코드: ${response.status})`);
-      }
+      if (!response.ok) throw new Error("서버 응답 오류");
 
       const data = await response.json();
-      
       statusMsg.textContent = "";
+
+      // 큐레이션 결과 HTML 템플릿 생성
+      const highlightsHtml = (data.highlights || []).map((h, idx) => `
+        <div class="highlight-item">
+          <span class="spot-num">SPOT 0${idx + 1}</span>
+          <div class="spot-info">
+            <strong>${h.title}</strong>
+            <p>${h.desc}</p>
+          </div>
+        </div>
+      `).join("");
+
+      const itineraryHtml = (data.itinerary || []).map(item => `
+        <div class="itinerary-row">
+          <span class="itin-time">${item.time}</span>
+          <span class="itin-act">${item.activity}</span>
+        </div>
+      `).join("");
+
+      const mapQuery = encodeURIComponent(data.kakaoQuery || data.destination);
+
+      resultBox.innerHTML = `
+        <div class="curation-card">
+          <div class="curation-badge">AI CURATOR'S PICK</div>
+          <h2 class="curation-destination">${data.destination}</h2>
+          <p class="curation-tagline">“${data.tagline}”</p>
+          
+          <div class="curation-section">
+            <h4>💡 큐레이션 배경</h4>
+            <p class="curation-reason">${data.reason}</p>
+          </div>
+
+          <div class="curation-section">
+            <h4>📍 꼭 들러야 할 추천 스팟</h4>
+            <div class="highlights-container">${highlightsHtml}</div>
+          </div>
+
+          <div class="curation-section">
+            <h4>🗓 추천 동선 가이드</h4>
+            <div class="itinerary-container">${itineraryHtml}</div>
+          </div>
+
+          <div class="curation-tip-box">
+            <strong>🌿 큐레이터 꿀팁</strong>
+            <p>${data.curatorTip}</p>
+          </div>
+
+          <div class="card-footer-actions">
+            <a href="https://map.kakao.com/link/search/${mapQuery}" target="_blank" rel="noopener noreferrer" class="map-link-btn">
+              🗺 카카오맵에서 위치 및 길찾기 보기 ↗
+            </a>
+          </div>
+        </div>
+      `;
+
       resultBox.style.display = "block";
-      resultText.textContent = data.result || "추천 결과를 가져오지 못했습니다.";
-      
-      // 결과 영역으로 스크롤 이동
-      resultBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      resultBox.scrollIntoView({ behavior: "smooth", block: "start" });
 
     } catch (err) {
-      console.error("추천 요청 실패:", err);
-      statusMsg.textContent = "추천 요청 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.";
+      console.error(err);
+      statusMsg.textContent = "일정을 분석하는 도중 문제가 생겼습니다. 다시 시도해 주세요.";
     } finally {
       submitBtn.disabled = false;
       btnText.textContent = "여행지 추천 받기";
