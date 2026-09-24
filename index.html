@@ -3,15 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI 맞춤 여행지 큐레이터</title>
+  <title>AI 맞춤 국내 여행 큐레이터</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="container">
-    <section class="hero-section">
+
+  <!-- 헤더 네비게이션 -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">JOURNEY.AI</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#hero">홈</a></li>
+          <li><a href="#about">서비스 소개</a></li>
+          <li><a href="#curator">여행지 추천</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 1. Hero 섹션 -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <span class="badge">AI-POWERED TRAVEL CURATOR</span>
+      <h1>당신만을 위한<br>특별한 여행의 시작</h1>
+      <p>단 세 가지 질문으로 취향과 일정에 딱 맞는 국내 여행지를 발견해 보세요.</p>
+      <a href="#curator" class="btn-primary">지금 추천받기 ↓</a>
+    </div>
+  </section>
+
+  <!-- 2. 서비스 소개 섹션 -->
+  <section id="about" class="about">
+    <div class="section-title">
+      <h2>ABOUT SERVICE</h2>
+      <p>여행 고민은 줄이고, 설렘은 더 크게</p>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <h3>01. 취향 분석</h3>
+        <p>복잡한 검색 없이 원하는 여행 스타일과 테마를 짚어냅니다.</p>
+      </div>
+      <div class="card">
+        <h3>02. 스마트 큐레이션</h3>
+        <p>동행자 규모와 여행 기간을 고려한 정밀 맞춤 일정을 제시합니다.</p>
+      </div>
+      <div class="card">
+        <h3>03. Gemini AI 엔진</h3>
+        <p>최신 언어모델이 생성하는 실시간 여행지 인사이트와 현장 팁을 제공합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. #curator 메인 추천 섹션 -->
+  <section id="curator" class="curator-section">
+    <div class="curator-container">
       <div class="intro-box">
         <span class="step-badge">02 / YOUR CURATION</span>
-        <h1 class="title">이번 여행,<br><em>어떤 결</em>인가요?</h1>
+        <h2 class="title">이번 여행,<br><em>어떤 결</em>인가요?</h2>
         <p class="subtitle">세 가지 힌트만 남겨주세요.<br>당신의 다음 장면을 그려볼게요.</p>
         <div class="step-indicator">
           <span class="active">01</span>
@@ -40,19 +89,43 @@
           </div>
 
           <button type="submit" id="submit-btn" class="submit-button">
-            <span>여행지 추천 받기</span>
+            <span id="btn-text">여행지 추천 받기</span>
             <span class="arrow">↗</span>
           </button>
           <div id="status-message" class="status-msg"></div>
         </form>
 
         <div id="result-box" class="result-box" style="display:none;">
-          <h3>✨ AI 추천 결과</h3>
+          <div class="result-header">✨ AI 추천 결과</div>
           <p id="result-text"></p>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <!-- 4. FAQ 섹션 -->
+  <section id="faq" class="faq-section">
+    <div class="section-title">
+      <h2>FAQ</h2>
+      <p>자주 묻는 질문</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h4>Q. 추천 결과는 어떤 기준으로 만들어지나요?</h4>
+        <p>입력하신 여행 스타일, 일정, 동행자 정보와 결합하여 최적의 국내 명소와 팁을 선별합니다.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Q. 해외 여행지도 추천되나요?</h4>
+        <p>현재 버전은 국내 여행지(지역, 명소, 자연, 카페 거리 등)를 중심으로 최적화되어 있습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer>
+    <p>© 2026 JOURNEY.AI. All rights reserved.</p>
+  </footer>
+
   <script src="js/app.js"></script>
 </body>
 </html>

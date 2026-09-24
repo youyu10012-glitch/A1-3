@@ -4,36 +4,151 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #d6e8a9;
+  background-color: #f7f9f4;
   font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Segoe UI", sans-serif;
   color: #1a1a1a;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 1rem;
+  line-height: 1.6;
 }
 
-.container {
-  width: 100%;
+/* 네비게이션 */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: rgba(247, 249, 244, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  border-bottom: 1px solid #e0e6d6;
+}
+.nav-container {
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #1e221b;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+.nav-links {
+  display: flex;
+  gap: 1.8rem;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #3b5025;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.nav-links a:hover {
+  color: #c8634a;
 }
 
-.hero-section {
+/* Hero 섹션 */
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background: linear-gradient(180deg, #f7f9f4 0%, #eef5df 100%);
+}
+.badge {
+  display: inline-block;
+  background: #dceec2;
+  color: #334423;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  color: #141c0f;
+  margin-bottom: 1.5rem;
+}
+.hero p {
+  font-size: 1.2rem;
+  color: #4a5d38;
+  margin-bottom: 2.5rem;
+}
+.btn-primary {
+  display: inline-block;
+  background: #1e221b;
+  color: #ffffff;
+  padding: 1rem 2.2rem;
+  border-radius: 4px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+.btn-primary:hover {
+  background: #31382c;
+}
+
+/* About 섹션 */
+.about {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.section-title h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #141c0f;
+}
+.section-title p {
+  color: #6a7d52;
+  margin-top: 0.5rem;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.card {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 8px;
+  border: 1px solid #e2ebd5;
+}
+.card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.8rem;
+  color: #1e221b;
+}
+
+/* Curator 메인 추천 섹션 */
+.curator-section {
+  background-color: #d6e8a9;
+  padding: 6rem 1.5rem;
+}
+.curator-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  gap: 3rem;
+  gap: 3.5rem;
   align-items: center;
 }
-
-@media (max-width: 768px) {
-  .hero-section {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-}
-
 .step-badge {
   font-size: 0.85rem;
   font-weight: 600;
@@ -42,7 +157,6 @@ body {
   display: block;
   margin-bottom: 2rem;
 }
-
 .title {
   font-size: 3.5rem;
   line-height: 1.25;
@@ -50,27 +164,23 @@ body {
   color: #141c0f;
   margin-bottom: 1.5rem;
 }
-
 .title em {
   font-style: italic;
   color: #c8634a;
   font-weight: 700;
 }
-
 .subtitle {
   font-size: 1.1rem;
   line-height: 1.6;
   color: #334423;
   margin-bottom: 2.5rem;
 }
-
 .step-indicator {
   display: flex;
   gap: 1.5rem;
   font-weight: 700;
   color: #798d60;
 }
-
 .step-indicator .active {
   color: #c8634a;
   text-decoration: underline;
@@ -80,17 +190,12 @@ body {
 .form-box {
   background-color: #e2f0b8;
   padding: 3rem 2.5rem;
-  border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-  position: relative;
-  z-index: 10;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
-
 .input-group {
   margin-bottom: 2rem;
-  position: relative;
 }
-
 .input-group label {
   display: block;
   font-size: 0.95rem;
@@ -98,11 +203,9 @@ body {
   color: #1a1a1a;
   margin-bottom: 0.4rem;
 }
-
 .input-group .required {
   color: #d64a38;
 }
-
 .input-group input {
   width: 100%;
   border: none;
@@ -112,19 +215,10 @@ body {
   font-size: 1.05rem;
   color: #111111;
   outline: none;
-  pointer-events: auto !important;
-  cursor: text !important;
 }
-
 .input-group input:focus {
   border-bottom: 2px solid #111111;
 }
-
-.input-group input::placeholder {
-  color: #839766;
-  font-size: 0.95rem;
-}
-
 .helper-text {
   display: block;
   font-size: 0.8rem;
@@ -146,35 +240,79 @@ body {
   gap: 0.5rem;
   cursor: pointer;
   margin-top: 1rem;
-  transition: background-color 0.2s ease;
 }
-
-.submit-button:hover {
-  background-color: #31382c;
-}
-
 .submit-button:disabled {
-  background-color: #798075;
-  cursor: not-allowed;
+  background-color: #697063;
+  cursor: wait;
 }
 
 .status-msg {
-  font-size: 0.85rem;
-  color: #92400e;
+  font-size: 0.9rem;
   margin-top: 0.8rem;
   min-height: 1.2rem;
+  color: #854d0e;
 }
 
 .result-box {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   background-color: #ffffff;
-  padding: 1.5rem;
+  padding: 1.8rem;
   border-radius: 6px;
-  line-height: 1.6;
-  border-left: 4px solid #1e221b;
+  border-left: 5px solid #1e221b;
+  animation: fadeIn 0.3s ease;
+}
+.result-header {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #141c0f;
+  margin-bottom: 0.75rem;
+}
+#result-text {
+  white-space: pre-line;
+  font-size: 0.98rem;
+  color: #2b3323;
+  line-height: 1.7;
 }
 
-.result-box h3 {
+/* FAQ */
+.faq-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.faq-item {
+  background: #ffffff;
+  padding: 1.8rem;
+  border-radius: 6px;
+  border: 1px solid #e0e6d6;
+}
+.faq-item h4 {
+  font-size: 1.05rem;
   margin-bottom: 0.5rem;
-  font-size: 1.1rem;
+  color: #141c0f;
+}
+
+/* 푸터 */
+footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border-top: 1px solid #e0e6d6;
+  color: #798d60;
+  font-size: 0.85rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.3rem; }
+  .curator-container { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
 }
