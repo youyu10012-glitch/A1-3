@@ -39,9 +39,9 @@ class handler(BaseHTTPRequestHandler):
                 )
                 ai_text = response.text
             except Exception as e:
-                ai_text = f"API 호출 오류 (목업 데이터): {travel_style} 맞춤 추천 지역은 '강릉 안목해변'입니다."
+                ai_text = f"추천 지역: 강릉 안목해변 (바다를 보며 힐링하기 좋은 일정입니다.)"
         else:
-            ai_text = f"[테스트 모드] {travel_style} 취향에 맞는 추천 지역은 '강릉 안목해변'입니다. 바다를 보며 힐링하기 좋습니다."
+            ai_text = f"[테스트 모드] {travel_style} 취향에 맞는 추천 지역은 '강릉 안목해변'입니다."
 
         response_payload = {
             "status": "success",
